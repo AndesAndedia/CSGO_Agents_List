@@ -4,36 +4,69 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.tugas1andes.R
-import com.example.tugas1andes.ListItem
-import androidx.recyclerview.widget.RecyclerView
+//import com.example.tugas1andes.ListItem
 import com.example.tugas1andes.Adapter
+//import com.example.tugas1andes.ListItem
+import com.example.tugas1andes.RecyclerViewItemModel
 import com.example.tugas1andes.databinding.FragmentHomeBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class HomeFragment : Fragment() {
     private var recyclerbinding: FragmentHomeBinding? = null
     private var columnCount = 1
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         recyclerbinding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        with (recyclerbinding!!.recyclerView) {
-            layoutManager = LinearLayoutManager(context)
+
+        val client = APIConfiguration.getAPIServices(this@HomeFragment)
+        client.getAgentList().enqueue(object : Callback<RecyclerViewItemModel> {
+            override fun onResponse(
+                call: Call<RecyclerViewItemModel>, response: Response<RecyclerViewItemModel>
+            ) {
+
+                if (response.isSuccessful) {
+
+                    with(recyclerbinding!!.recyclerView) {
+                        val recyclerViewItemModel: MutableList<RecyclerViewItemModel> =
+                            mutableListOf()
+                        response.body()?.let { recyclerViewItemModel.addAll(listOf(it)) }
+
+                        setHasFixedSize(true)
+                        layoutManager = LinearLayoutManager(requireContext())
+                        val listAdapter = Adapter(recyclerViewItemModel)
+                        adapter=listAdapter
+                        Toast.makeText(
+                            requireContext(), "BISAAAA", Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                } else {
+                    Toast.makeText(
+                        requireContext(), "Kegagalan pada onResponse", Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+
+            override fun onFailure(call: Call<RecyclerViewItemModel>, t: Throwable) {
+                Toast.makeText(requireContext(), "Kegagalan pada onFailure", Toast.LENGTH_SHORT)
+                    .show()
+            }
+        })
+/*            layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
 
             val listAdapter = Adapter()
             listAdapter.isiList(ListItem.buatList())
             adapter = listAdapter
-        }
+            */
+
 
         return recyclerbinding?.root
     }

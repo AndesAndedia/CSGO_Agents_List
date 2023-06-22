@@ -9,6 +9,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tugas1andes.databinding.ActivityMainBinding
 import com.example.tugas1andes.databinding.FragmentHomeBinding
@@ -27,30 +28,32 @@ class MainActivity : AppCompatActivity() {
         installSplashScreen()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val client = APIConfiguration.getAPIServices(this@MainActivity)
-        client.getAgentList().enqueue(object : Callback<RecyclerViewItemModel> {
-            override fun onResponse(
-                call: Call<RecyclerViewItemModel>,
-                response: Response<RecyclerViewItemModel>
-            ) {
-                if(response.isSuccessful){
-                    with(binding) {
-                        val recyclerViewItemModel: MutableList<RecyclerViewItemModel> = mutableListOf()
-                        response.body()?.let { recyclerViewItemModel.addAll(listOf(it))}
-
-
-
-                        val adapter = Adapter(recyclerViewItemModel)
-                        recyclerView.adapter
-                    }
-                }
-                Toast.makeText(this@MainActivity, "Kegagalan pada onResponse", Toast.LENGTH_SHORT).show()
-            }
-
-            override fun onFailure(call: Call<RecyclerViewItemModel>, t: Throwable) {
-                Toast.makeText(this@MainActivity, "Kegagalan pada onFailure", Toast.LENGTH_SHORT).show()
-            }
-        })
+//        val client = APIConfiguration.getAPIServices(this@MainActivity)
+//        client.getAgentList().enqueue(object : Callback<RecyclerViewItemModel> {
+//            override fun onResponse(
+//                call: Call<RecyclerViewItemModel>,
+//                response: Response<RecyclerViewItemModel>
+//            ) {
+//
+//                if(response.isSuccessful){
+//                    with(binding) {
+//                        val recyclerViewItemModel: MutableList<RecyclerViewItemModel> = mutableListOf()
+//                        response.body()?.let { recyclerViewItemModel.addAll(listOf(it))}
+//
+//                        recyclerView.setHasFixedSize(true)
+//                        HomeFragment.layoutManager = LinearLayoutManager(this@MainActivity)
+//
+//                        val adapter = Adapter(recyclerViewItemModel)
+//                        recyclerView.adapter
+//                    }
+//                }
+//                Toast.makeText(this@MainActivity, "Kegagalan pada onResponse", Toast.LENGTH_SHORT).show()
+//            }
+//
+//            override fun onFailure(call: Call<RecyclerViewItemModel>, t: Throwable) {
+//                Toast.makeText(this@MainActivity, "Kegagalan pada onFailure", Toast.LENGTH_SHORT).show()
+//            }
+//        })
 
 
         initViews()
