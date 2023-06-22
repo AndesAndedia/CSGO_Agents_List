@@ -1,6 +1,6 @@
 package com.example.tugas1andes
 
-object ListItem {
+object ListItem {//tes
     fun buatList (): MutableList<RecyclerViewItemModel> {
         val daftarItem = mutableListOf<RecyclerViewItemModel>()
 
