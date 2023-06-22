@@ -27,9 +27,9 @@ class HomeFragment : Fragment() {
 
 
         val client = APIConfiguration.getAPIServices(this@HomeFragment)
-        client.getAgentList().enqueue(object : Callback<RecyclerViewItemModel> {
+        client.getAgentList().enqueue(object : Callback<List<RecyclerViewItemModel>> {
             override fun onResponse(
-                call: Call<RecyclerViewItemModel>, response: Response<RecyclerViewItemModel>
+                call: Call<List<RecyclerViewItemModel>>, response: Response<List<RecyclerViewItemModel>>
             ) {
 
                 if (response.isSuccessful) {
@@ -37,7 +37,11 @@ class HomeFragment : Fragment() {
                     with(recyclerbinding!!.recyclerView) {
                         val recyclerViewItemModel: MutableList<RecyclerViewItemModel> =
                             mutableListOf()
-                        response.body()?.let { recyclerViewItemModel.addAll(listOf(it)) }
+                        response.body()?.let { recyclerViewItemModel.addAll(it) }
+
+                        Toast.makeText(
+                            requireContext(), "${response.body()!!.size}", Toast.LENGTH_SHORT
+                        ).show()
 
                         setHasFixedSize(true)
                         layoutManager = LinearLayoutManager(requireContext())
@@ -54,19 +58,11 @@ class HomeFragment : Fragment() {
                 }
             }
 
-            override fun onFailure(call: Call<RecyclerViewItemModel>, t: Throwable) {
+            override fun onFailure(call: Call<List<RecyclerViewItemModel>>, t: Throwable) {
                 Toast.makeText(requireContext(), "Kegagalan pada onFailure", Toast.LENGTH_SHORT)
                     .show()
             }
         })
-/*            layoutManager = LinearLayoutManager(context)
-            setHasFixedSize(true)
-
-            val listAdapter = Adapter()
-            listAdapter.isiList(ListItem.buatList())
-            adapter = listAdapter
-            */
-
 
         return recyclerbinding?.root
     }

@@ -33,16 +33,16 @@ class Adapter(private val mutableList: MutableList<RecyclerViewItemModel>): Recy
     }
 
     override fun onBindViewHolder(holder: Adapter.ViewHolderCustom, position: Int) {
-        holder.bindData(listData[position])
+        holder.bindData(mutableList[position])
     }
 
     override fun getItemCount(): Int {
-        return listData.size
+        return mutableList.size
     }
 
     fun isiList(listItem: MutableList<RecyclerViewItemModel>){
-        listData.clear()
-        listData.addAll(listItem)
+        mutableList.clear()
+        mutableList.addAll(listItem)
     }
 
 }

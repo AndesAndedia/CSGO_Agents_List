@@ -8,8 +8,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
 interface APIServices {
-    @GET("/api/en/agents.json")
-    fun getAgentList() : Call<RecyclerViewItemModel>
+    @GET("api/en/agents.json")
+    fun getAgentList() : Call<List<RecyclerViewItemModel>>
 }
 class APIConfiguration{
     companion object{
@@ -20,7 +20,7 @@ class APIConfiguration{
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()
-        return retrofit.create(APIServices::class.java)
+            return retrofit.create(APIServices::class.java)
         }
     }
 }
