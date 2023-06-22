@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val client = APIConfiguration.getAPIServices(this@MainActivity)
-        client.getAgentList().enqueue(object: Callback<RecyclerViewItemModel> {
+        client.getAgentList().enqueue(object: Callback<RecyclerViewItemModel> {//tes
 
 
         })
