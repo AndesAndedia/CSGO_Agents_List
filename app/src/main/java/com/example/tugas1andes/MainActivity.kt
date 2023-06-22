@@ -9,6 +9,8 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.tugas1andes.databinding.ActivityMainBinding
+import retrofit2.Callback
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,6 +22,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val client = APIConfiguration.getAPIServices(this@MainActivity)
+        client.getAgentList().enqueue(object: Callback<RecyclerViewItemModel> {
+
+
+        })
 
         initViews()
     }
