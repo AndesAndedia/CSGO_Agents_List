@@ -23,6 +23,7 @@ class Adapter : RecyclerView.Adapter<Adapter.ViewHolderCustom>() {
                 deskripsiItem.text = item.description
                 rarityItem.text = item.rarity
             }
+            // Haloo
         }
     }
 
