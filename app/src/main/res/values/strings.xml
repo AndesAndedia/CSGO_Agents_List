@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">tugas1andes</string>
     <string name="title_home">Home</string>
-    <string name="title_notifications">Profile</string>
+    <string name="title_notifications">Profile Duo Lato</string>
     <string name="nama">NAMA</string>
-    <string name="namaProfil">Andes Andedia Fanansa</string>
+    <string name="namaProfilKanan">Andes Andedia Fanansa</string>
+    <string name="namaProfilKiri">Matahari Pradipta</string>
     <string name="prodi">S1 Sistem Informasi</string>
     <string name="ig">Instagram</string>
     <string name="linkedIn">Linked In</string>

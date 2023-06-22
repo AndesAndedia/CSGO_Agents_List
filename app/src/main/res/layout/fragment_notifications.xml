@@ -10,94 +10,115 @@
         android:id="@+id/profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
         android:layout_marginTop="75dp"
         android:text="@string/title_notifications"
+        android:textColor="@color/black"
         android:textSize="15pt"
         android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/profpict"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="17dp"
-        android:src="@drawable/andes2"
+        android:scaleType="centerCrop"
+        android:src="@drawable/duolato"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile"/>
+        app:layout_constraintTop_toBottomOf="@+id/profile" />
 
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/nameKanan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/purple_700"
         android:layout_marginTop="17dp"
-        android:text="@string/namaProfil"
+        android:text="@string/namaProfilKanan"
+        android:textColor="@color/purple_700"
         android:textSize="12pt"
-        app:layout_constraintTop_toBottomOf="@+id/profpict"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profpict" />
 
     <TextView
-        android:id="@+id/angkatan"
+        android:id="@+id/nameKiri"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:text="@string/namaProfilKiri"
+        android:textColor="@color/purple_700"
+        android:textSize="12pt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/instagramlogo1" />
+    <TextView
+        android:id="@+id/angkatan1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/prodi"
         android:textSize="15sp"
-        app:layout_constraintTop_toBottomOf="@+id/name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameKanan" />
+    <TextView
+        android:id="@+id/angkatan2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/prodi"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameKiri" />
 
     <ImageView
-        android:id="@+id/instagramlogo"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="17dp"
-        android:src="@drawable/instagram"
-        app:layout_constraintStart_toStartOf="@+id/angkatan"
-        app:layout_constraintTop_toBottomOf="@+id/angkatan"
-        tools:ignore="ContentDescription" />
-
-    <ImageView
-        android:id="@+id/linkedInlogo"
+        android:id="@+id/linkedInlogo1"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="17dp"
         android:src="@drawable/linkedin"
-        app:layout_constraintEnd_toEndOf="@+id/angkatan"
-        app:layout_constraintTop_toBottomOf="@+id/angkatan"
+        app:layout_constraintEnd_toEndOf="@+id/angkatan1"
+        app:layout_constraintTop_toBottomOf="@+id/angkatan1"
         tools:ignore="ContentDescription" />
 
-    <Button
-        android:id="@+id/buttonToInstagram"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/instagramlogo1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginTop="17dp"
-        android:text="@string/ig"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/instagramlogo"
-        tools:ignore="MissingConstraints" />
+        android:src="@drawable/instagram"
+        app:layout_constraintStart_toStartOf="@+id/angkatan1"
+        app:layout_constraintTop_toBottomOf="@+id/angkatan1"
+        tools:ignore="ContentDescription" />
 
-    <Button
-        android:id="@+id/buttonToLinkedIn"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/instagramlogo2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginTop="17dp"
-        android:text="@string/linkedIn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonToInstagram"
-        tools:ignore="MissingConstraints" />
+        android:src="@drawable/instagram"
+        app:layout_constraintStart_toStartOf="@+id/angkatan2"
+        app:layout_constraintTop_toBottomOf="@+id/angkatan2"
+        tools:ignore="ContentDescription" />
+
+
+    <ImageView
+        android:id="@+id/linkedInlogo2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="17dp"
+        android:src="@drawable/linkedin"
+        app:layout_constraintEnd_toEndOf="@+id/angkatan2"
+        app:layout_constraintTop_toBottomOf="@+id/angkatan2"
+        tools:ignore="ContentDescription" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

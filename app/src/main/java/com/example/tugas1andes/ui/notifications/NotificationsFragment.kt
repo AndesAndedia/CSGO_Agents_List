@@ -6,12 +6,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.example.tugas1andes.R
-import com.example.tugas1andes.databinding.FragmentNotificationsBinding
 
 class NotificationsFragment : Fragment(), View.OnClickListener {
 
@@ -26,20 +23,32 @@ class NotificationsFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val instagramButton : Button = view.findViewById(R.id.buttonToInstagram)
-        instagramButton.setOnClickListener(this)
-        val linkedInButton : Button = view.findViewById(R.id.buttonToLinkedIn)
-        linkedInButton.setOnClickListener(this)
+        val instagramButton1 :ImageView= view.findViewById(R.id.instagramlogo1)
+        instagramButton1.setOnClickListener(this)
+        val linkedInButton1 : ImageView = view.findViewById(R.id.linkedInlogo1)
+        linkedInButton1.setOnClickListener(this)
+        val instagramButton2 :ImageView= view.findViewById(R.id.instagramlogo2)
+        instagramButton2.setOnClickListener(this)
+        val linkedInButton2 : ImageView = view.findViewById(R.id.linkedInlogo2)
+        linkedInButton2.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
         when(v.id) {
-            R.id.buttonToInstagram -> {
+            R.id.instagramlogo1 -> {
                 val instagram = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/andes_a_f/"))
                 startActivity(instagram)
             }
-            R.id.buttonToLinkedIn -> {
+            R.id.linkedInlogo1 -> {
                 val linkedIn = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.linkedin.com/in/andes-andedia-60903a21b/"))
+                startActivity(linkedIn)
+            }
+            R.id.instagramlogo2 -> {
+                val instagram = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/mataharipradipta/"))
+                startActivity(instagram)
+            }
+            R.id.linkedInlogo2 -> {
+                val linkedIn = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.linkedin.com/in/matahari-pradipta-676120268/"))
                 startActivity(linkedIn)
             }
         }
