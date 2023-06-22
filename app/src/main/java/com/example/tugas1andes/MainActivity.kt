@@ -30,16 +30,17 @@ class MainActivity : AppCompatActivity() {
                 call: Call<RecyclerViewItemModel>,
                 response: Response<RecyclerViewItemModel>
             ) {
-                if (response.isSuccessful) {
-                   //gpt val RecyclerViewItemModel = response.body()
-                    // Proses data RecyclerViewItemModel di sini
-                } else {
-                 //   Toast.makeText(this@MainActivity,"Kegagalan pada Response", Toast)
+                if(response.isSuccessful){
+                    with(binding) {
+                        val recyclerViewItemModel: MutableList<recycleViewItemModel> = mutableListOf()
+                        response.body()?.
+                    }
                 }
+                Toast.makeText(this@MainActivity, "Kegagalan pada onResponse", Toast.LENGTH_SHORT).show()
             }
 
             override fun onFailure(call: Call<RecyclerViewItemModel>, t: Throwable) {
-                // Tangani kegagalan
+                Toast.makeText(this@MainActivity, "Kegagalan pada onFailure", Toast.LENGTH_SHORT).show()
             }
         })
 
