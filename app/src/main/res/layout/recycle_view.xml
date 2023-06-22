@@ -45,13 +45,13 @@
         app:layout_constraintStart_toEndOf="@+id/gambarItem" />
 
     <TextView
-        android:id="@+id/tahunItem"
+        android:id="@+id/rarityItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:layout_marginEnd="25dp"
         android:layout_marginTop="10dp"
-        android:text="Tahun Item"
+        android:text="Rarity Item"
         android:textSize="8sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="@+id/deskripsiItem" />

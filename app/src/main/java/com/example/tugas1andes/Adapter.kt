@@ -6,32 +6,32 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
-import com.example.tugas1andes.databinding.RecycleViewBinding
+import com.example.tugas1andes.databinding.
+import com.squareup.picasso.Picasso
 
-class Adapter: RecyclerView.Adapter<Adapter.ViewHolderCustom>() {
+
+class Adapter : RecyclerView.Adapter<Adapter.ViewHolderCustom>() {
     private var listData = mutableListOf<RecyclerViewItemModel>()
 
-    inner class ViewHolderCustom(private val binding: RecycleViewBinding)
-        : RecyclerView.ViewHolder(binding.root){
-        fun bindData(item: RecyclerViewItemModel){
-            with (binding){
-                Glide.with(itemView.context).load(item.gambar).into(gambarItem)
-                judulItem.text = item.judul
-                deskripsiItem.text = item.deskripsi
-                tahunItem.text = item.tahun
+    class ViewHolderCustom(private val binding: RecycleViewItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        fun bindData(item: RecyclerViewItemModel) {
+            with(binding) {
+                Picasso.get().load(item.image).into(gambarItem)
+                judulItem.text = item.name
+                deskripsiItem.text = item.description
+                rarityItem.text = item.rarity
             }
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Adapter.ViewHolderCustom {
-        return ViewHolderCustom(
-            RecycleViewBinding.inflate(
-                LayoutInflater.from(parent.context), parent, false
-            )
-        )
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderCustom {
+        val binding = RecycleViewItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolderCustom(binding)
     }
 
-    override fun onBindViewHolder(holder: Adapter.ViewHolderCustom, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolderCustom, position: Int) {
         holder.bindData(listData[position])
     }
 
@@ -39,9 +39,8 @@ class Adapter: RecyclerView.Adapter<Adapter.ViewHolderCustom>() {
         return listData.size
     }
 
-    fun isiList(listItem: MutableList<RecyclerViewItemModel>){
+    fun isiList(listItem: MutableList<RecyclerViewItemModel>) {
         listData.clear()
         listData.addAll(listItem)
     }
-
-}
+}}
