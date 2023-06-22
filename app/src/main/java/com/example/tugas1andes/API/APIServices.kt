@@ -16,7 +16,7 @@ class APIConfiguration{
             val client = OkHttpClient.Builder().build()
 
             val retrofit = Retrofit.Builder()
-                .baseUrl("https://bymykel.github.io/CSGO-API/")
+                .baseUrl("https://bymykel.github.io/CSGO-API/en")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()
