@@ -1,5 +1,6 @@
 package com.example.tugas1andes.ui.home
 
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,11 +8,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-//import com.example.tugas1andes.ListItem
 import com.example.tugas1andes.Adapter
+//import com.example.tugas1andes.ListItem
+
 //import com.example.tugas1andes.ListItem
 import com.example.tugas1andes.RecyclerViewItemModel
 import com.example.tugas1andes.databinding.FragmentHomeBinding
+import com.example.tugas1andes.listAgent
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -33,7 +36,6 @@ class HomeFragment : Fragment() {
             ) {
 
                 if (response.isSuccessful) {
-
                     with(recyclerbinding!!.recyclerView) {
                         val recyclerViewItemModel: MutableList<RecyclerViewItemModel> =
                             mutableListOf()
