@@ -9,7 +9,10 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.recyclerview.widget.RecyclerView
 import com.example.tugas1andes.databinding.ActivityMainBinding
+import com.example.tugas1andes.databinding.FragmentHomeBinding
+import com.example.tugas1andes.ui.home.HomeFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -32,8 +35,13 @@ class MainActivity : AppCompatActivity() {
             ) {
                 if(response.isSuccessful){
                     with(binding) {
-                        val recyclerViewItemModel: MutableList<recycleViewItemModel> = mutableListOf()
-                        response.body()?.
+                        val recyclerViewItemModel: MutableList<RecyclerViewItemModel> = mutableListOf()
+                        response.body()?.let { recyclerViewItemModel.addAll(listOf(it))}
+
+
+
+                        val adapter = Adapter(recyclerViewItemModel)
+                        recyclerView.adapter
                     }
                 }
                 Toast.makeText(this@MainActivity, "Kegagalan pada onResponse", Toast.LENGTH_SHORT).show()
