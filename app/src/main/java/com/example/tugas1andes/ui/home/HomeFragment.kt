@@ -14,7 +14,6 @@ import com.example.tugas1andes.Adapter
 //import com.example.tugas1andes.ListItem
 import com.example.tugas1andes.RecyclerViewItemModel
 import com.example.tugas1andes.databinding.FragmentHomeBinding
-import com.example.tugas1andes.listAgent
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
