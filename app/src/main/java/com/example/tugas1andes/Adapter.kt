@@ -20,7 +20,6 @@ class Adapter(private val mutableList: MutableList<RecyclerViewItemModel>): Recy
                 deskripsiItem.text = item.description
                 rarityItem.text = item.rarity
             }
-            // Haloo
         }
     }
 
